@@ -1,0 +1,42 @@
+void setup() {
+  // put your setup code here, to run once:
+pinMode(9,OUTPUT);
+pinMode(8,OUTPUT);//POS
+pinMode(7,OUTPUT);//POS
+pinMode(6,OUTPUT);
+pinMode(4,OUTPUT);//VCC
+pinMode(5,OUTPUT);//VCC
+pinMode(11,INPUT);//SF
+pinMode(12,INPUT);//SS
+digitalWrite(4,HIGH);
+digitalWrite(5,HIGH);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ int sf=digitalRead(11);
+ int ss=digitalRead(12);
+ if(sf==1&&ss==0)
+ {
+  digitalWrite(8,HIGH);
+  digitalWrite(9,LOW);
+  digitalWrite(7,HIGH);
+  digitalWrite(6,LOW); 
+  
+ }
+if (ss==1&&sf==1)
+{
+   digitalWrite(8,HIGH);  
+  digitalWrite(9,LOW);
+  digitalWrite(7,LOW);//RIGHT
+  digitalWrite(6,LOW); 
+}
+if (ss==0&&sf==0)
+{
+   digitalWrite(8,LOW);  
+  digitalWrite(9,LOW);
+  digitalWrite(7,LOW);//stop
+  digitalWrite(6,LOW);
+}
+}
