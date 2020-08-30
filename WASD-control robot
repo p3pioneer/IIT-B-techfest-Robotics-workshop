@@ -1,0 +1,51 @@
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(8,OUTPUT);//POS
+pinMode(9,OUTPUT);
+pinMode(7,OUTPUT);//POS
+pinMode(6,OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+while(!Serial.available());
+char x=Serial.read();
+
+
+if(x=='w')
+{
+  digitalWrite(8,HIGH);
+  digitalWrite(9,LOW);
+  digitalWrite(7,HIGH);
+  digitalWrite(6,LOW);
+}
+if(x=='a')
+{
+  digitalWrite(8,LOW);
+  digitalWrite(9,HIGH);
+  digitalWrite(7,HIGH);
+  digitalWrite(6,LOW);
+}
+if(x=='s')
+{
+  digitalWrite(8,LOW);
+  digitalWrite(9,HIGH);
+  digitalWrite(7,LOW);
+  digitalWrite(6,HIGH);
+}
+if(x=='d')
+{digitalWrite(8,HIGH);
+  digitalWrite(9,LOW);
+  digitalWrite(7,LOW);
+  digitalWrite(6,HIGH);
+  }
+  if(x==' ')
+  {
+    digitalWrite(8,LOW);
+  digitalWrite(9,LOW);
+  digitalWrite(7,LOW);
+  digitalWrite(6,LOW);
+  }
+}
